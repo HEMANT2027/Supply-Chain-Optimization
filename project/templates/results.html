@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1><b>Generated Dataset</b></h1>
+
+<a href="{{ url_for('static', filename='farms.csv') }}" download>Farms Data</a>
+<a href="{{ url_for('static', filename='hubs.csv') }}" download>Hubs Data</a>
+<a href="{{ url_for('static', filename='centers.csv') }}" download>Centers Data</a>
+
+<h1>Supply Chain Route Visualization Results</h1>
+
+<div class="plot">
+    <h2>Greedy Algorithm Routes</h2>
+    <img src="data:image/png;base64,{{ plots[0] }}" alt="Greedy Algorithm Routes">
+</div>
+
+<div class="plot">
+    <h2>Novel Algorithm Routes</h2>
+    <img src="data:image/png;base64,{{ plots[1] }}" alt="Novel Algorithm Routes">
+</div>
+
+<div class="plot">
+    <h2>Algorithm Comparisons</h2>
+    <img src="data:image/png;base64,{{ plots[2] }}" alt="Algorithm Comparisons">
+</div>
+
+<a href="/" class="button">Generate New Visualization</a>
+{% endblock %}

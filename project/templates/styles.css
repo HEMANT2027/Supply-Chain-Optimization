@@ -1,0 +1,168 @@
+/* styles.css */
+
+/* Import Google Fonts for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@300;400;600&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Use Poppins for body text */
+    height: 100%;
+    color: #fff;
+}
+
+/* Add a background image with gradient overlay */
+.background-container {
+    background-image: url('plainBG.jpg'), linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)); /* Background with gradient overlay */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for navigation */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f1c40f;
+    transform: scale(1.1); /* Slight scale effect on hover */
+    text-shadow: 0 0 10px rgba(241, 196, 15, 0.7); /* Glow effect on hover */
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    padding: 80px 20px;
+    background: rgba(0, 0, 0, 0.6);
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 3.5em;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 0 10px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 1.4em;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* About Us and Services */
+section {
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+section p, section ul {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    margin: 10px 0;
+}
+
+/* Input Parameters Form */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+form label {
+    font-size: 1.2em;
+    margin: 10px 0 5px;
+    font-weight: 500;
+}
+
+form input {
+    padding: 15px;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+form input:focus {
+    border-color: #f1c40f; /* Focus effect on input fields */
+    outline: none;
+}
+
+form button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background: linear-gradient(45deg, #f1c40f, #e67e22); /* Gradient background */
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: linear-gradient(45deg, #e67e22, #f1c40f);
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* 

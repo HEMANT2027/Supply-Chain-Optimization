@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#input-parameters">Input Parameters</a></li>
+                <li><a href="#about">About Us</a></li> <!-- Updated link -->
+            </ul>
+        </nav>
+
+        <header class="animate fade-in">
+            <h1>Welcome to AgriRoute!</h1>
+            <p>The goal is to create a scalable and robust algorithm that optimizes 
+                both routing and resource allocation for an agricultural supply chain, ensuring efficient delivery with minimal spoilage.</p>
+        </header>
+
+        <!-- Input Parameters Section -->
+        section id="input-parameters" class="animate slide-up">
+    <h2>Input Parameters</h2>
+    <form id="inputForm" method="POST" action="/process">
+        <label for="numFarms">Number of Farms:</label>
+        <input type="number" id="numFarms" name="numFarms" required>
+
+        <label for="numHubs">Number of Hubs:</label>
+        <input type="number" id="numHubs" name="numHubs" required>
+
+        <label for="numCentres">Number of Centres:</label>
+        <input type="number" id="numCentres" name="numCentres" required>
+
+        <button type="submit" id="viewSolutionBtn">View Solution</button>
+    </form>
+</section>
+
+<script>
+    document.getElementById('inputForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent form from submitting the traditional way
+        
+        // Get the input values
+        const numFarms = document.getElementById('numFarms').value;
+        const numHubs = document.getElementById('numHubs').value;
+        const numCentres = document.getElementById('numCentres').value;
+
+        // Use Fetch API to send the data to Flask backend
+        fetch('/process', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                num_farms: numFarms,
+                num_hubs: numHubs,
+                num_centres: numCentres
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response from Flask (you can display the graphs here)
+            // Example: Update the page with the generated images (graphs)
+            document.getElementById('outputGraphs').innerHTML = `
+                <h3>Generated Graph 1</h3>
+                <img src="data:image/png;base64,${data.fig1}" alt="Graph 1">
+                <h3>Generated Graph 2</h3>
+                <img src="data:image/png;base64,${data.fig2}" alt="Graph 2">
+            `;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+<section id="outputGraphs">
+    <!-- This is where the generated graphs will be displayed -->
+</section>
+
+        <!-- Moved About Us section here -->
+        <section id="about" class="animate slide-up">
+            <h2>About Us</h2>
+            <p>We are dedicated to providing the best service.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 AgriRoute. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>  <!-- Link to the JavaScript file -->
+</body>
+</html>
